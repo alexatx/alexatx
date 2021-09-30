@@ -16,10 +16,6 @@ df = pd.read_csv(datfile)
 
 ALPHA = 0.05
 
-print('*********************************************************')
-print('***CSC 3312 | Alex Berry | BerryA_a8.py | Assignment 8***')
-print('*********************************************************')
-print('=========================================================')
 print('Data values read from input file...')
 # #Drop all but the following columns:
 # • 'Height'
@@ -145,4 +141,4 @@ print('The distortion inflection occurs at the value k = 6.')
 print('The optimal value of k appeares more consistent with the CDC (6) than')
 print('the NObeyesdad count determined by the study designers (7).')
 print()
-print('****** Boom ******')
+print('End of program. Exiting.')
