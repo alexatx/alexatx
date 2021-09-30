@@ -1,8 +1,5 @@
 # Alex Berry
-# CSC 3312
-# Spring 2
-# Assignment 1: descriptors of data (mean, median, std)
-# including extra credit
+# Descriptors of data (mean, median, std)
 
 import pandas as pd
 import numpy as np
@@ -38,9 +35,7 @@ print ("The library-based calculation for the standard deviation of Y is:", libs
 print()
 print()
 dframe.plot.scatter(x='X', y='Y')
-print ("--Extra Credit--")
 
-####### Extra Credit #######
 datafile2 ='C:\\Users\\julie\\3312\\a1ECdata.csv'
 dframe2 = pd.read_csv(datafile2)
 
