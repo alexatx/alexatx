@@ -1,0 +1,107 @@
+# Alex Berryp
+# CSC 3312
+# Spring 2
+# Assignment 2
+
+import pandas as pd
+import numpy as np
+from scipy.stats import kurtosis, skew, skewtest, kurtosistest
+
+datfile='C:\\Users\\julie\\3312\\Assign2DataSet1.csv'
+series = pd.read_csv('C:\\Users\\julie\\3312\\Assign2DataSet1.csv', squeeze = True)
+series.hist(bins=50)
+
+print('Tests for standard deviation, skew, and kurtosis for Part A:')
+
+print( 'The mean is:', series.mean())
+print( 'The standard deviation is:', series.std())
+
+################ Quick Check: Step 3 ###############
+quickChkMin = series.mean() - 3*series.std()
+quickChkMax = series.mean() + 3*series.std()
+if quickChkMin < series.min():
+    print('The left side of the sample fails to accomodate 3 standard deviations of the data.')
+else:
+        print('The left side of the sample is within 3 standard deviations of the data.')
+if quickChkMax > series.max():
+    print('The right side of the sample fails to accomodate 3 standard deviations of the data.')
+else:
+    print('The right side of the sample is within 3 standard deviations of the data.')
+    
+if quickChkMin < series.min() and quickChkMax > series.max():
+    print('The histogram is non-normal.')
+else:
+    print('The histogram is possibly normal.')
+print()
+############################################################
+
+print( 'Skewness using Series.skew(): {}'.format( skew(series) ))
+print( 'Kurtosis using Series.kurtosis(): {}'.format( kurtosis(series)) )
+print()
+skewResult = skewtest(series, axis=0, nan_policy='propagate')
+kurtResult = kurtosistest(series, axis=0, nan_policy='propagate')
+print('Skewtest() result:', skewResult.statistic)
+print('Kurtosistest() result:', kurtResult.statistic)
+
+if skewResult.statistic < 3 and kurtResult.statistic < 3:
+    print('Both skew and kurtosis tests are less than 3, indicate potential normality.')
+else:
+    print('Skew and kurtosis tests indicate non-normality.')
+print()
+################# All Tests Logic: Step 6 ###################
+print('Checking all tests...')
+if quickChkMin > series.min() and quickChkMax < series.max():
+    if skewResult.statistic < 3 and kurtResult.statistic < 3:
+        print('All tests indicate potential normality.')
+else:
+    print('One or more tests indicate non-normality.')
+print('---------------------------------------------------')    
+########################## Part B ###########################
+print('Tests for standard deviation, skew, and kurtosis for Part B:')
+print()
+datfile='C:\\Users\\julie\\3312\\Assign2DataSet1.csv'
+series2 = pd.read_csv('C:\\Users\\julie\\3312\\Assign2DataSet2.csv', squeeze = True)
+series2.hist(bins=10)
+
+print( 'The mean for Part B is:', series2.mean())
+print( 'The standard deviation for Part B is:', series2.std())
+
+################ Quick Check: Step 3 ###############
+quickChkMinB = series2.mean() - 3*series2.std()
+quickChkMaxB = series2.mean() + 3*series2.std()
+if quickChkMinB < series2.min():
+    print('The left side of the sample fails to accomodate 3 standard deviations of the data.')
+else:
+        print('The left side of the sample is within 3 standard deviations of the data.')
+if quickChkMaxB > series2.max():
+    print('The right side of the sample fails to accomodate 3 standard deviations of the data.')
+else:
+    print('The right side of the sample is within 3 standard deviations of the data.')
+    
+if quickChkMinB < series2.min() and quickChkMaxB > series2.max():
+    print('The histogram is non-normal.')
+else:
+    print('The histogram is possibly normal.')
+print()
+############################################################
+
+print( 'Skewness using Series.skew(): {}'.format( skew(series2) ))
+print( 'Kurtosis using Series.kurtosis(): {}'.format( kurtosis(series2)) )
+print()
+skewResult2 = skewtest(series2, axis=0, nan_policy='propagate')
+kurtResult2 = kurtosistest(series2, axis=0, nan_policy='propagate')
+print('Skewtest() result:', skewResult2.statistic)
+print('Kurtosistest() result:', kurtResult2.statistic)
+if skewResult2.statistic < 3 and kurtResult2.statistic < 3:
+     print('Both skew and kurtosis tests are less than 3, indicate potential normality.')
+else:
+    print('Skew and kurtosis tests indicate non-normality.')
+print()
+################# All Tests Logic: Step 6 ###################
+print('Checking all tests...')
+if quickChkMinB > series2.min() and quickChkMaxB < series2.max():
+    if skewResult2.statistic < 3 and kurtResult2.statistic < 3:
+        print('All tests indicate potential normality.')
+else:
+    print('One or more tests indicate non-normality.')
+#############################################################

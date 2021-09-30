@@ -1,0 +1,94 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr 13 19:29:52 2021
+
+@author: julie
+"""
+
+import pandas as pd
+from scipy import stats
+
+datfile='C:\\Users\\julie\\3312\\week6data.csv'
+df = pd.read_csv(datfile, low_memory=False)
+
+#Drop all but the following columns:
+#'Top Nitrate/Nitrite (mg/L)'
+#'Top Ortho-Phosphorus (mg/L)'
+
+df.drop(df.columns.difference(['Top Nitrate/Nitrite (mg/L)','Top Ortho-Phosphorus (mg/L)']), 1, inplace=True)
+
+#Convert to float, drop nan values
+df = df.apply (pd.to_numeric, errors='coerce')
+df = df.dropna()
+df = df.reset_index(drop=True)
+
+print('***CSC 3312 | Alex Berry | BerryA-a6.py | Assignment 6***')
+print('################# Assignment 6 Part A ##################')
+print('#########################################################')
+print('Data Scrubbing ...')
+print('...')
+print('...')
+print('Scrubbing completed.')
+print('Original tuples count: 92011')
+print('Row count after scrubbing:', df.size/2)
+
+scatterA = df.plot.scatter(x='Top Nitrate/Nitrite (mg/L)',
+                      y='Top Ortho-Phosphorus (mg/L)',
+                      c='red')
+
+print('Applying correlational analysis...')
+x = df['Top Nitrate/Nitrite (mg/L)']
+y = df['Top Ortho-Phosphorus (mg/L)']
+pearsonR = stats.pearsonr(x, y)
+print('Pearson:', 'r =', pearsonR[0],',', pRptString(pearsonR))
+
+spearmanR = stats.spearmanr(x,y)
+print('Spearman:', 'r =', spearmanR[0], ',', pRptString1(spearmanR))
+print()
+print('The Top Nitrate/Nitrite (mg/L) and Top Ortho-Phosphorus (mg/L) variables are linearly correlated.')
+print()
+print('------------------------')
+print('Assignment Part B')
+print('Variables of interest:')
+print('Top Salinity (psu), and')
+print('Top Conductivity (S/m)')
+print('------------------------')
+
+datfile='C:\\Users\\julie\\3312\\week7data.csv'
+dfB = pd.read_csv(datfile, low_memory=False)
+
+ALPHA = 0.05
+
+#Dropping all but the following columns:
+#'Top Salinity (psu)'
+#'Top Conductivity (S/m)'
+
+dfB.drop(dfB.columns.difference(['Top Salinity  (psu)','Top Conductivity (S/m)']), 1, inplace=True)
+
+#Convert to float, drop nan values
+dfB = dfB.apply (pd.to_numeric, errors='coerce')
+dfB = dfB.dropna()
+dfB = dfB.reset_index(drop=True)
+print('Data Scrubbing ...')
+print('...')
+print('...')
+print('Scrubbing completed.')
+print('Original tuples count: 92011')
+print('Row count after scrubbing:', dfB.size/2)
+
+scatterB = dfB.plot.scatter(x='Top Salinity  (psu)',
+                      y='Top Conductivity (S/m)',
+                      c='red')
+
+x = dfB['Top Salinity  (psu)']
+y = dfB['Top Conductivity (S/m)']
+
+pearsonR = stats.pearsonr(x, y)
+print('Pearson:', 'r =', pearsonR[0],',', pRptString(pearsonR))
+
+spearmanR = stats.spearmanr(x,y)
+print('Spearman:', 'r =', spearmanR[0], ',', pRptString1(spearmanR))
+
+print('The Top Salinity (psu) and Top Conductivity (S/m) variables are monotonically related.')
+print()
+print('****** End of program output stream ******')
