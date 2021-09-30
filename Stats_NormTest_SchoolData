@@ -14,9 +14,7 @@ datfile='C:\\Users\\julie\\3312\\week7data.csv'
 df = pd.read_csv(datfile)
 
 ALPHA = 0.05
-print('*********************************************************')
-print('***CSC 3312 | Alex Berry | BerryA-a7.py | Assignment 7***')
-print('------------------ Assignment 7 Part A ------------------')
+
 print('---------------------------------------------------------')
 print('Variables of interest:')
 print('-----------------')
@@ -248,12 +246,6 @@ print()
 print('****** End of program output stream ******')
 # print_model = modelB.summary()
 # print(print_model)
-
-
-# And then
-
-# a=df['coef'].values[1]
-# c=df['coef'].values[0]
 
 
 
