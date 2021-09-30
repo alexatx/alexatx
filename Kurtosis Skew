@@ -1,7 +1,5 @@
-# Alex Berryp
-# CSC 3312
-# Spring 2
-# Assignment 2
+# Alex Berry
+# Kurtosis, Skew
 
 import pandas as pd
 import numpy as np
@@ -33,8 +31,6 @@ if quickChkMin < series.min() and quickChkMax > series.max():
 else:
     print('The histogram is possibly normal.')
 print()
-############################################################
-
 print( 'Skewness using Series.skew(): {}'.format( skew(series) ))
 print( 'Kurtosis using Series.kurtosis(): {}'.format( kurtosis(series)) )
 print()
@@ -56,7 +52,6 @@ if quickChkMin > series.min() and quickChkMax < series.max():
 else:
     print('One or more tests indicate non-normality.')
 print('---------------------------------------------------')    
-########################## Part B ###########################
 print('Tests for standard deviation, skew, and kurtosis for Part B:')
 print()
 datfile='C:\\Users\\julie\\3312\\Assign2DataSet1.csv'
@@ -65,8 +60,7 @@ series2.hist(bins=10)
 
 print( 'The mean for Part B is:', series2.mean())
 print( 'The standard deviation for Part B is:', series2.std())
-
-################ Quick Check: Step 3 ###############
+# Quickcheck data
 quickChkMinB = series2.mean() - 3*series2.std()
 quickChkMaxB = series2.mean() + 3*series2.std()
 if quickChkMinB < series2.min():
@@ -83,7 +77,6 @@ if quickChkMinB < series2.min() and quickChkMaxB > series2.max():
 else:
     print('The histogram is possibly normal.')
 print()
-############################################################
 
 print( 'Skewness using Series.skew(): {}'.format( skew(series2) ))
 print( 'Kurtosis using Series.kurtosis(): {}'.format( kurtosis(series2)) )
@@ -97,7 +90,7 @@ if skewResult2.statistic < 3 and kurtResult2.statistic < 3:
 else:
     print('Skew and kurtosis tests indicate non-normality.')
 print()
-################# All Tests Logic: Step 6 ###################
+################# All Tests Logic ###################
 print('Checking all tests...')
 if quickChkMinB > series2.min() and quickChkMaxB < series2.max():
     if skewResult2.statistic < 3 and kurtResult2.statistic < 3:
