@@ -41,10 +41,7 @@ dframe['Month'] = monthValues[0]
 dframe['Year'] = monthValues[2]
 dframe = dframe[(dframe['Year'].str.contains('2017'))]
 dframe = dframe[(dframe['Month'].str.contains('08'))]
-print()
-print('***CSC 3312 | Alex Berry | BerryA-a5.py | Assignment 5***')
-print('################# Assignement 5 Part A ##################')
-print('#########################################################')
+
 print('Weather Data Scrubbing...')
 print('...')
 print('Scrubbing completed.')
@@ -108,7 +105,7 @@ print('#########################################################')
 print('########### End of Program Output for Part A ############')
 print('*********************************************************')
 print('*********************************************************')
-print('################# Assignement 5 Part B ##################')
+print('############### Part B ##################')
 print('Data analysis period: 2015-2020')
 print('Weather variable of interest: Humidity')
 print('---------------------------------------------------------')
