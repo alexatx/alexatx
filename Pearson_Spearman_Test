@@ -22,9 +22,7 @@ df = df.apply (pd.to_numeric, errors='coerce')
 df = df.dropna()
 df = df.reset_index(drop=True)
 
-print('***CSC 3312 | Alex Berry | BerryA-a6.py | Assignment 6***')
-print('################# Assignment 6 Part A ##################')
-print('#########################################################')
+
 print('Data Scrubbing ...')
 print('...')
 print('...')
