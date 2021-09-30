@@ -1,7 +1,6 @@
 # ### Alex Berry
-# ### CSC 3312
-# ### Spring 2021
-# ### Assignment 4
+# ### Kurtosis and Skew report of Weather Data
+# ### Mann-Whitney Test
 
 import pandas as pd
 from scipy import stats
@@ -45,8 +44,6 @@ dframe = dframe[(dframe['Station Name'].str.contains('Street'))]
 dframe = dframe[(dframe['Year'].str.contains('2020'))]
 dframe = dframe[(dframe['Month'].str.contains('05'))]
 
-print('***CSC 3312 | Alex Berry | BerryA-a4.py | Assignment 4***')
-print('#########################################################')
 print('Barometric Pressure Data Scrubbing...')
 print('...')
 print('Scrubbing completed.')
@@ -91,7 +88,6 @@ print('Based on the results of these tests, and our p-value not being greater th
 print()
 print('############### End of Part A ###############')
 
-####################################################
 ##################### Part B #######################
 print()
 datfileB='C:\\Users\\julie\\3312\\week4data.csv'
@@ -161,14 +157,6 @@ print('Based on the results of the Mann-Whitney test, the null hypothesis can be
 print()
 print('############### End of Part B ###############')
 print('Program executed normally. Exiting.')
-### I know that the SettingWithCopyWarning is coming up, 
-### but I haven't figured out exactly how to fix it.
-print()
-print()
-print()
-
-
-
 
 
 
